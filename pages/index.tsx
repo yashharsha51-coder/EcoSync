@@ -4,13 +4,15 @@ import dynamic from 'next/dynamic';
 import { onAuthStateChanged, User } from 'firebase/auth';
 import { auth } from '../lib/firebase';
 
-import { AuthScreen } from '../components/AuthScreen';
 import { SidebarLayout } from '../components/SidebarLayout';
-import { DashboardView } from '../views/DashboardView';
-import { FootprintCalculatorView, CalculatorState } from '../views/FootprintCalculatorView';
-import { DailyTrackerView } from '../views/DailyTrackerView';
-import { LeaderboardView } from '../views/LeaderboardView';
-import { AnalyticsView } from '../views/AnalyticsView';
+import type { CalculatorState } from '../views/FootprintCalculatorView';
+
+const AuthScreen = dynamic(() => import('../components/AuthScreen').then(mod => mod.AuthScreen), { ssr: false });
+const DashboardView = dynamic(() => import('../views/DashboardView').then(mod => mod.DashboardView), { ssr: false });
+const FootprintCalculatorView = dynamic(() => import('../views/FootprintCalculatorView').then(mod => mod.FootprintCalculatorView), { ssr: false });
+const DailyTrackerView = dynamic(() => import('../views/DailyTrackerView').then(mod => mod.DailyTrackerView), { ssr: false });
+const LeaderboardView = dynamic(() => import('../views/LeaderboardView').then(mod => mod.LeaderboardView), { ssr: false });
+const AnalyticsView = dynamic(() => import('../views/AnalyticsView').then(mod => mod.AnalyticsView), { ssr: false });
 
 // Use dynamic import for 3D component to avoid SSR issues
 const Environment3D = dynamic(() => import('../components/Environment3D'), {
