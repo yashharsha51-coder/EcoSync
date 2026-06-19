@@ -163,10 +163,10 @@ export const DashboardUI: React.FC<DashboardUIProps> = ({ data, onRefresh, isLoa
             <Leaf size={20} className="text-slate-700" />
           </div>
           <div className="flex-1">
-            <div className="text-xs text-slate-500 font-medium mb-0.5">Physical Activity</div>
+            <div className="text-xs text-slate-500 font-medium mb-0.5">Trees Needed to Offset</div>
             <div className="text-lg font-bold text-slate-900 tracking-tight flex items-center gap-2">
-              8,432 <span className="text-xs font-medium text-slate-400">steps</span>
-              <span className="text-[10px] text-emerald-600 font-semibold bg-emerald-50/50 px-2 py-0.5 rounded border border-emerald-100/50 ml-auto">1.2 kg CO₂e offset</span>
+              {Math.max(1, Math.round((data.carbon_footprint.total_estimated_kg_co2_per_day * 365) / 22))} <span className="text-xs font-medium text-slate-400">trees/year</span>
+              <span className="text-[10px] text-emerald-600 font-semibold bg-emerald-50/50 px-2 py-0.5 rounded border border-emerald-100/50 ml-auto">Based on footprint</span>
             </div>
           </div>
         </motion.div>
