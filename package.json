@@ -31,6 +31,8 @@
     "@types/react-dom": "^18",
     "@types/three": "^0.164.0",
     "autoprefixer": "^10.4.19",
+    "eslint": "^9.39.4",
+    "eslint-config-next": "^16.2.9",
     "jest": "^30.4.2",
     "jest-environment-jsdom": "^30.4.1",
     "postcss": "^8.4.38",
