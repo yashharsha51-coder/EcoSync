@@ -20,7 +20,7 @@ export async function callAIBackend(telemetry: Record<string, any>) {
       generationConfig: { responseMimeType: "application/json" }
     });
 
-    const systemPrompt = `You are the EcoSync AI assistant. Process the provided telemetry and output **exactly** the following JSON schema:
+    const systemPrompt = `You are the CarbonSense AI assistant. Process the provided telemetry and output **exactly** the following JSON schema:
 {
   "telemetry_processed": true,
   "metrics": { "daily_co2e_kg": 0, "weekly_trajectory": "" },

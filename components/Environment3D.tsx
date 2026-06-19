@@ -83,6 +83,20 @@ const ReactiveSwarm: React.FC<{ count?: number; color: string }> = ({ count = 40
     pointsRef.current.rotation.x = time * 0.005; // Reduced global rotation
   });
 
+  const circleTexture = useMemo(() => {
+    const canvas = document.createElement('canvas');
+    canvas.width = 32;
+    canvas.height = 32;
+    const context = canvas.getContext('2d');
+    if (context) {
+      context.beginPath();
+      context.arc(16, 16, 16, 0, Math.PI * 2);
+      context.fillStyle = 'white';
+      context.fill();
+    }
+    return new THREE.CanvasTexture(canvas);
+  }, []);
+
   return (
     <points ref={pointsRef}>
       <bufferGeometry>
@@ -99,6 +113,8 @@ const ReactiveSwarm: React.FC<{ count?: number; color: string }> = ({ count = 40
         transparent 
         opacity={0.8} 
         sizeAttenuation 
+        map={circleTexture}
+        alphaTest={0.1}
       />
     </points>
   );

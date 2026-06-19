@@ -1,8 +1,8 @@
 import React from 'react';
-import DashboardUI, { EcoSyncResponse } from '../components/DashboardUI';
+import DashboardUI, { CarbonSenseResponse } from '../components/DashboardUI';
 
 interface DashboardViewProps {
-  data: EcoSyncResponse | null;
+  data: CarbonSenseResponse | null;
   isLoading: boolean;
   onRefresh?: () => void;
 }
@@ -15,7 +15,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ data, isLoading, o
     ai_recommendations: [],
     environment_state_vector: 0,
     suggested_lighting_hex: "#ffffff"
-  } as unknown as EcoSyncResponse;
+  } as unknown as CarbonSenseResponse;
 
   return (
     <div className="w-full h-full relative">

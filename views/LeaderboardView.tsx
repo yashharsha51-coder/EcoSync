@@ -87,7 +87,7 @@ export const LeaderboardView: React.FC = () => {
         {/* Bulletproof Flex Header */}
         <div className="flex items-center p-5 bg-white/40 backdrop-blur-md border-b border-white/60 text-[10px] sm:text-xs font-bold uppercase tracking-widest text-slate-400 w-full">
           <div className="w-12 sm:w-16 shrink-0 text-center">Rank</div>
-          <div className="flex-1 px-4">EcoSync User</div>
+          <div className="flex-1 px-4">CarbonSense User</div>
           <div className="w-24 sm:w-32 shrink-0 text-right px-2">Footprint</div>
           <div className="hidden sm:block w-32 shrink-0 text-right px-2">Score</div>
         </div>

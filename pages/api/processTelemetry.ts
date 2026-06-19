@@ -18,7 +18,7 @@ interface TelemetryPayload {
 /**
  * JSON schema returned to the frontend
  */
-interface EcoSyncResponse {
+interface CarbonSenseResponse {
   telemetry_processed: true;
   metrics: {
     daily_co2e_kg: number;
@@ -102,7 +102,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
 
     // Cast to our interface – we trust the LLM to obey the schema
-    const responseData = llmResponse as EcoSyncResponse;
+    const responseData = llmResponse as CarbonSenseResponse;
     return res.status(200).json(responseData);
   } catch (err: any) {
     console.error('Error processing telemetry:', err);

@@ -43,7 +43,7 @@ export const SidebarLayout: React.FC<SidebarLayoutProps> = ({ children, activeVi
               <span className="text-slate-800 text-xl font-black">E</span>
             </div>
             <div>
-              <h1 className="text-xl font-black text-slate-900 tracking-tight">EcoSync</h1>
+              <h1 className="text-xl font-black text-slate-900 tracking-tight">CarbonSense</h1>
               <p className="text-[10px] text-slate-500 font-bold tracking-widest uppercase">Carbon Compass</p>
             </div>
           </div>
@@ -76,11 +76,11 @@ export const SidebarLayout: React.FC<SidebarLayoutProps> = ({ children, activeVi
           <div className="bg-white/60 backdrop-blur-md border border-white p-4 rounded-2xl flex items-center justify-between shadow-sm">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-slate-200 border-2 border-white overflow-hidden flex items-center justify-center font-bold text-slate-600">
-                YG
+                {(auth.currentUser?.displayName || auth.currentUser?.email || 'US').substring(0, 2).toUpperCase()}
               </div>
-              <div>
-                <div className="text-sm font-bold text-slate-900">Yashwanth G.R</div>
-                <div className="text-[10px] text-slate-500 font-medium">yashharsha51@gmail.com</div>
+              <div className="overflow-hidden">
+                <div className="text-sm font-bold text-slate-900 truncate">{auth.currentUser?.displayName || 'Eco User'}</div>
+                <div className="text-[10px] text-slate-500 font-medium truncate">{auth.currentUser?.email}</div>
               </div>
             </div>
             <button 

@@ -99,7 +99,7 @@ export const DailyTrackerView: React.FC = () => {
         <div>
           <h4 className="text-sm font-semibold text-slate-900 mb-1">How tracking affects your score</h4>
           <p className="text-sm text-slate-600 leading-relaxed">
-            Every action you log is instantly transmitted to your live EcoSync profile, offsetting your calculated baseline footprint. Consistent tracking over 7 days grants a permanent multiplier to your Global Ranking.
+            Every action you log is instantly transmitted to your live CarbonSense profile, offsetting your calculated baseline footprint. Consistent tracking over 7 days grants a permanent multiplier to your Global Ranking.
           </p>
         </div>
       </div>

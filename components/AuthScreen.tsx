@@ -62,7 +62,7 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({ onLogin }) => {
           <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-sm border border-slate-100">
             <span className="text-slate-800 text-3xl font-black tracking-tighter">E</span>
           </div>
-          <h1 className="text-3xl font-black text-slate-900 tracking-tight">EcoSync</h1>
+          <h1 className="text-3xl font-black text-slate-900 tracking-tight">CarbonSense</h1>
           <p className="text-sm text-slate-500 text-center mt-3 font-medium">
             Minimal. Intelligent. Sustainable.
           </p>

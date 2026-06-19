@@ -127,7 +127,7 @@ export default function Home() {
     });
   }, [ecoData, user, authLoaded]);
 
-  if (!authLoaded) return <div className="h-screen w-screen bg-slate-50 text-slate-900 flex items-center justify-center font-bold">Loading EcoSync...</div>;
+  if (!authLoaded) return <div className="h-screen w-screen bg-slate-50 text-slate-900 flex items-center justify-center font-bold">Loading CarbonSense...</div>;
 
   if (!user && !devModeBypass) {
     return <AuthScreen onLogin={() => setDevModeBypass(true)} />;
@@ -153,7 +153,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-teal-500/30">
       <Head>
-        <title>EcoSync | Carbon Compass</title>
+        <title>CarbonSense | Carbon Compass</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 

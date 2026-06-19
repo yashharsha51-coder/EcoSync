@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Activity, Leaf, AlertCircle, TrendingDown } from 'lucide-react';
 
-export interface EcoSyncResponse {
+export interface CarbonSenseResponse {
   carbon_footprint: {
     total_estimated_kg_co2_per_day: number;
     breakdown: { category: string; amount: number; severity: string }[];
@@ -14,7 +14,7 @@ export interface EcoSyncResponse {
 }
 
 interface DashboardUIProps {
-  data: EcoSyncResponse;
+  data: CarbonSenseResponse;
   onRefresh?: () => void;
   isLoading?: boolean;
 }
