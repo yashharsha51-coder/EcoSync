@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { motion } from 'framer-motion';
 
 export interface CalculatorState {
@@ -20,12 +20,12 @@ interface FootprintCalculatorViewProps {
   totalFootprint: number;
 }
 
-export const FootprintCalculatorView: React.FC<FootprintCalculatorViewProps> = ({ state, setState, totalFootprint }) => {
+export const FootprintCalculatorView: React.FC<FootprintCalculatorViewProps> = React.memo(({ state, setState, totalFootprint }) => {
   const [activeTab, setActiveTab] = useState(1);
 
-  const updateState = (key: keyof CalculatorState, value: any) => {
+  const updateState = useCallback((key: keyof CalculatorState, value: any) => {
     setState(prev => ({ ...prev, [key]: value }));
-  };
+  }, [setState]);
 
   const tabs = [
     { id: 1, title: "Transportation", icon: "🚗" },
@@ -246,4 +246,4 @@ export const FootprintCalculatorView: React.FC<FootprintCalculatorViewProps> = (
       </div>
     </div>
   );
-};
+});

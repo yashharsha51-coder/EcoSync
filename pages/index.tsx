@@ -102,12 +102,12 @@ export default function Home() {
   }, [calcState]);
 
   // Simulate network fetch for the Dashboard "Sync" button
-  const handleRefresh = () => {
+  const handleRefresh = useCallback(() => {
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
     }, 800);
-  };
+  }, []);
 
   // --- Real-time Firestore Sync for Leaderboard ---
   useEffect(() => {

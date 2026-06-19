@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { Check, Info, ArrowRight, CheckCircle2, Circle } from 'lucide-react';
 
-export const DailyTrackerView: React.FC = () => {
+export const DailyTrackerView: React.FC = React.memo(() => {
   const [completedActions, setCompletedActions] = useState<number[]>([]);
 
   const actions = [
@@ -13,13 +13,15 @@ export const DailyTrackerView: React.FC = () => {
     { id: 5, title: 'Line-dried clothes instead of dryer', category: 'Energy', co2Saved: 1.8 },
   ];
 
-  const toggleAction = (id: number) => {
-    if (completedActions.includes(id)) {
-      setCompletedActions(completedActions.filter(a => a !== id));
-    } else {
-      setCompletedActions([...completedActions, id]);
-    }
-  };
+  const toggleAction = useCallback((id: number) => {
+    setCompletedActions(prev => {
+      if (prev.includes(id)) {
+        return prev.filter(a => a !== id);
+      } else {
+        return [...prev, id];
+      }
+    });
+  }, []);
 
   const totalSaved = completedActions.reduce((acc, id) => {
     const action = actions.find(a => a.id === id);
@@ -106,4 +108,4 @@ export const DailyTrackerView: React.FC = () => {
 
     </div>
   );
-};
+});

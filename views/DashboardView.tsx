@@ -7,7 +7,7 @@ interface DashboardViewProps {
   onRefresh?: () => void;
 }
 
-export const DashboardView: React.FC<DashboardViewProps> = ({ data, isLoading, onRefresh }) => {
+export const DashboardView: React.FC<DashboardViewProps> = React.memo(({ data, isLoading, onRefresh }) => {
   // Provide a safe fallback for the UI component to prevent TS errors
   const safeData = data || {
     carbon_footprint: { total_estimated_kg_co2_per_day: 0, breakdown: [] },
@@ -22,6 +22,6 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ data, isLoading, o
       <DashboardUI data={safeData} isLoading={isLoading} onRefresh={onRefresh} />
     </div>
   );
-};
+});
 
 export default DashboardView;

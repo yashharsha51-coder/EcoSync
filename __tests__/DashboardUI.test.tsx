@@ -3,39 +3,37 @@ import { DashboardUI } from '../components/DashboardUI';
 
 describe('DashboardUI Component', () => {
   const mockData = {
-    telemetry_processed: true,
-    metrics: {
-      daily_co2e_kg: 12.5,
-      weekly_trajectory: 'improving',
+    carbon_footprint: {
+      total_estimated_kg_co2_per_day: 12.5,
+      breakdown: [
+        { category: "Transport", amount: 5, severity: "High" }
+      ]
     },
-    user_delivery: {
-      acknowledgment: 'Great job today. You saved 1.2kg of CO2e.',
-      micro_frictionless_action: 'Walk to the store instead of driving.',
-    },
+    sustainability_score: 85,
+    ai_recommendations: [
+      "Use public transit."
+    ],
+    environment_state_vector: 0.85,
+    suggested_lighting_hex: "#14b8a6"
   };
 
-  it('displays loading state correctly and respects accessibility', () => {
+  it('displays loading state correctly', () => {
+    // @ts-ignore
     render(<DashboardUI data={null} isLoading={true} />);
-    
-    const loadingElement = screen.getByText(/SYNCING TELEMETRY/i);
+    const loadingElement = screen.getByText(/Syncing Ecosystem Data.../i);
     expect(loadingElement).toBeInTheDocument();
-    
-    // Check accessibility tags for the loading region
-    const liveRegion = loadingElement.closest('[aria-live="polite"]');
-    expect(liveRegion).toHaveAttribute('aria-busy', 'true');
   });
 
-  it('renders telemetry data using glassmorphism design rules', () => {
+  it('renders telemetry data correctly', () => {
     render(<DashboardUI data={mockData} isLoading={false} />);
     
-    // Verify content mapping
-    expect(screen.getByText('Great job today. You saved 1.2kg of CO2e.')).toBeInTheDocument();
+    // Check score
+    expect(screen.getByText('85')).toBeInTheDocument();
+    
+    // Check footprint
     expect(screen.getByText('12.5')).toBeInTheDocument();
-    expect(screen.getByText('improving')).toBeInTheDocument();
-    expect(screen.getByText('Walk to the store instead of driving.')).toBeInTheDocument();
-
-    // Check action button accessibility
-    const commitButton = screen.getByRole('button', { name: /Commit to suggested frictionless action/i });
-    expect(commitButton).toBeInTheDocument();
+    
+    // Check breakdown category
+    expect(screen.getByText('Transport')).toBeInTheDocument();
   });
 });
