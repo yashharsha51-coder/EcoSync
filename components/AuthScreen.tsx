@@ -123,12 +123,7 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({ onLogin }) => {
             {isRegistering ? 'Already have an account? Sign In' : 'Need an account? Register'}
           </button>
 
-          <button
-            onClick={onLogin}
-            className="w-full mt-4 py-2 rounded-xl text-[10px] font-bold tracking-widest uppercase text-slate-400 hover:text-slate-600 transition-colors"
-          >
-            Skip Login (Dev/Demo Mode)
-          </button>
+
         </div>
       </motion.div>
     </div>
